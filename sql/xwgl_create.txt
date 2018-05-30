@@ -1,0 +1,127 @@
+drop database xwgldb;           /*删除原有数据库*/
+
+create database xwgldb;         /*创建数据库*/  
+use xwgldb;                     /*使用创建的数据库*/ 
+ 
+create table gly   /*管理员表*/
+(
+   glyid int not null default 0 primary key,    /*管理员id*/
+   glydl varchar(50) not null,                 /*管理员登陆名*/
+   glyxm varchar(50),                           /*管理员姓名*/
+   glymm varchar(50) not null,                  /*管理员密码*/
+   jsid int not null default 0,                  /*角色id*/
+   lxfs  char(30)                                /*联系方式*/   
+);
+
+create table js    /*角色表*/ 
+(
+   jsid int not null default 0 primary key,       /*角色id*/  
+   jsmc varchar(50) not null                      /*角色名称*/ 
+);
+
+create table qxfp    /*权限分配表*/ 
+(
+   jsid int not null default 0,                            /*角色id*/        
+   qxid int not null default 0,
+   primary key(jsid,qxid)                                 /*权限id*/ 
+);
+
+create table qx       /*权限表*/ 
+(
+   qxid int not null primary key,                             /*权限id*/                 
+   qxmc varchar(50) not null                                  /*权限名称*/ 
+);
+
+create table yg       /*员工表*/ 
+(
+   ygid int not null default 0 primary key,       /*员工id*/ 
+   ygdl varchar(50) not null,                     /*员工登陆名*/
+   ygxm varchar(50),                              /*员工姓名*/ 
+   ygxb varchar(50),		                  /*员工性别*/ 
+   ygmm varchar(50) not null,                     /*员工密码*/
+   lxfs varchar(150),                              /*联系方式*/ 
+   bmid int not null default 0,                   /*部门id*/ 
+   jsid int not null default 0,                   /*角色id*/ 
+   lzyf int not null default 0                    /*离职与否:0在职，1离职*/
+);
+
+create table bm       /*部门表*/ 
+(
+   bmid int not null default 0 primary key,                  /*部门id*/
+   fbmid int not null default 0,                             /*父部门id*/
+   bmmc char(30),                                  /*部门名称*/
+   bmms varchar(255)                               /*部门描述*/
+);
+
+create table shjl     /*审核记录表*/ 
+(
+  shid int not null default 0 primary key,                   /*审核id*/ 
+  xwid int not null default 0,                               /*新闻id*/ 
+  tjr int  not null,                                         /*提交人id*/ 
+  tjsj datetime,                                             /*提交时间*/ 
+  shrmc varchar(50),                                         /*审核人姓名*/ 
+  shsj datetime,                                             /*审核时间*/ 
+  shyj varchar(800),                                         /*审核意见*/ 
+  ztid int not null                                          /*状态id*/ 
+);
+
+create table xw      /*新闻表*/ 
+(
+  xwid int not null default 1 primary key,         /*新闻id*/ 
+  xwbt varchar(50) not null,                       /*新闻标题*/ 
+  xwgs varchar(200),                                /*新闻概述*/
+  xwly varchar(30),                                /*新闻来源*/ 
+  fbsj datetime,                                   /*发布时间*/ 
+  xwnr varchar(10000) not null ,                     /*新闻内容*/ 
+  bsid int not null,                                /*版式id*/ 
+  lmid int,                                         /*栏目id*/ 
+  ygid int not null,                                /*创建人id*/ 
+  ztid int not null,                                 /*状态id*/ 
+  fbztid int not null,                              /*发布状态id*/ 
+  sxid int                                          /*顺序id*/
+);
+
+create table xwzt      /*新闻状态表*/ 
+(
+   ztid int not null default 0 primary key,                /*新闻状态id*/ 
+   ztmc varchar(30)  not null                              /*新闻状态名称*/
+);
+
+create table tp      /*图片表*/ 
+(
+  tpid  int not null default 0 primary key,                 /*图片id*/ 
+  tpms  varchar(50),                                        /*图片描述*/ 
+  xwid  int not null default 0,                              /*新闻id*/ 
+  tplj  varchar(50),                                         /*图片路径*/ 
+  tplx  int not null default 0                              /*图片类型 0标题图片 1第一张插图 2第二张插图*/
+);
+
+create table lm      /*栏目表*/ 
+(
+  lmid int not null default 0 primary key,                  /*栏目id*/
+  lmmc varchar(50) not null,                                 /*栏目名称*/
+  sxid int                                                   /*顺序id*/
+);
+
+create table fbzt      /*发布状态表*/ 
+(
+   fbztid int not null default 0 primary key,              /*发布状态id*/ 
+   fbztmc varchar(30) not null                              /*发布状态名称*/
+);
+
+
+/*权限分配表*/
+alter table qxfp add foreign key(jsid) references js(jsid);
+alter table qxfp add foreign key(qxid) references qx(qxid);
+
+/*员工表*/
+alter table yg add foreign key(jsid) references js(jsid);
+
+
+
+
+
+
+
+
+

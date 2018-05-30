@@ -1,0 +1,4 @@
+#Fri Apr 13 10:21:28 CST 2018
+base.0=F\:\\bysj_adcode\\ad\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\24
+path.0=classes.dex
+renamed.0=classes.dex

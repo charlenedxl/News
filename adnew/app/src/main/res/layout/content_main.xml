@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <!--<FrameLayout-->
+        <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content" >-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/title_bar"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="fill_parent"-->
+            <!--android:scaleType="fitXY"-->
+            <!--android:src="@drawable/title_bar" />-->
+
+        <!--<TextView-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="fill_parent"-->
+            <!--android:gravity="center"-->
+            <!--android:text="@string/title"-->
+            <!--android:textColor="#ffffff"-->
+            <!--android:textSize="24sp" />-->
+    <!--</FrameLayout>-->
+
+    <HorizontalScrollView
+        android:id="@+id/hsvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_tool_bar"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <GridView
+                    android:id="@+id/gvTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:background="@color/color_tool_bar"
+                    android:columnWidth="75dp"
+                    android:numColumns="auto_fit"
+                    android:stretchMode="none"
+                    android:listSelector="@drawable/selector_gridview_background">
+                </GridView>
+
+                <View
+                    android:id="@+id/scroll_bar"
+                    android:layout_width="75dp"
+                    android:layout_height="2dp"
+                    android:layout_gravity="bottom"
+                    android:background="#ffffff"/>
+
+            </FrameLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#5887d5"/>
+            <!--<ImageView-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="2px"-->
+                <!--android:scaleType="fitXY"-->
+                <!--android:src="@drawable/title_line" />-->
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vPager"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.0"
+        android:background="#EFEFEF"
+        android:flipInterval="30"
+        android:persistentDrawingCache="animation" >
+    </android.support.v4.view.ViewPager>
+</LinearLayout>

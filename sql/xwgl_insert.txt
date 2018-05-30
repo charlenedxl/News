@@ -1,0 +1,119 @@
+/*向管理员表插入数据*/
+insert into gly values(0,'root','超级管理员','123',0,'1503250000');
+
+
+/*向角色表插入数据*/
+insert into js values(0,"系统管理员");
+insert into js values(1,"系统主编");
+insert into js values(2,"系统编辑");
+
+
+/*向权限表插入数据*/
+insert into qx values(1,"增加新闻");
+insert into qx values(2,"个人新闻管理");
+insert into qx values(3,"查看发布新闻");
+insert into qx values(4,"审核管理");
+insert into qx values(5,"栏目管理");
+insert into qx values(6,"基本权限查看");
+insert into qx values(7,"角色权限管理");
+insert into qx values(8,"部门管理");
+insert into qx values(9,"员工信息管理");
+insert into qx values(10,"个人信息管理");
+
+
+/*向权限分配表插入数据*/
+insert into qxfp values(0,1);
+insert into qxfp values(0,2);
+insert into qxfp values(0,3);
+insert into qxfp values(0,4);
+insert into qxfp values(0,5);
+insert into qxfp values(0,6);
+insert into qxfp values(0,7);
+insert into qxfp values(0,8);
+insert into qxfp values(0,9);
+insert into qxfp values(0,10);
+insert into qxfp values(1,1);
+insert into qxfp values(1,2);
+insert into qxfp values(1,3);
+insert into qxfp values(1,4);
+insert into qxfp values(1,5);
+insert into qxfp values(1,10);
+insert into qxfp values(2,1);
+insert into qxfp values(2,2);
+insert into qxfp values(2,3);
+insert into qxfp values(2,10);
+
+
+
+/*向员工表插入数据*/
+insert into yg values(0,"rlfz","如来佛祖","男","123","10086",1,0,0);
+insert into yg values(1,"swk","孙悟空","男","swk","1008611",2,2,0);
+insert into yg values(2,"bgj","白骨精","男","bgj","12580",3,2,0);
+insert into yg values(3,"ts","唐僧","男","ts","110",1,1,0);
+insert into yg values(4,"zbj","猪八戒","男","zbj","119",1,2,0);
+insert into yg values(5,"nmw","牛魔王","男","nmw","008",3,2,0);
+
+
+/*向部门表插入数据*/
+insert into bm values(0,-1,"**公司","**公司的描述");
+insert into bm values(1,0,"A部门","A部门的描述");
+insert into bm values(2,1,"B部门","B部门的描述");
+insert into bm values(3,1,"C部门","C部门的描述");
+insert into bm values(4,1,"D部门","D部门的描述");
+insert into bm values(5,2,"E部门","E部门的描述");
+insert into bm values(6,2,"F部门","F部门的描述");
+insert into bm values(7,3,"G部门","G部门的描述");
+insert into bm values(8,3,"K部门","K部门的描述");
+insert into bm values(9,4,"I部门","I部门的描述");
+
+/*向新闻状态表插入数据*/
+insert into xwzt values(0,"未提交审核"); /*草稿*/
+insert into xwzt values(1,"提交未审核"); /*已提交，未审核*/
+insert into xwzt values(2,"未通过审核"); /*已审核，未通过*/
+insert into xwzt values(3,"通过审核");
+insert into xwzt values(4,"封杀");
+
+
+
+/*向新闻表插入数据*/
+
+
+
+/*向审核记录表插入数据*/
+
+
+
+/*向栏目表插入数据*/
+insert into lm values(0,"未发布",0);
+insert into lm values(1,"新闻",1);
+insert into lm values(2,"财经",2);
+insert into lm values(3,"科技",3);
+insert into lm values(4,"体育",4);
+insert into lm values(5,"娱乐",5);
+
+
+
+
+
+/*向发布状态表插入数据*/
+insert into fbzt values(0,"未发布");
+insert into fbzt values(1,"已发布"); 
+insert into fbzt values(2,"已过期");
+
+
+/*向图片表插入数据*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
